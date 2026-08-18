@@ -41,6 +41,7 @@ app = FastAPI(title="My Todo App",
 )
 
 origins = [
+    "https://vercel.app",
     "http://localhost",
     "http://127.0.0.1",
     # Add your frontend URL/port here if using a live server extension (e.g., http://127.0.0.1:5500)
