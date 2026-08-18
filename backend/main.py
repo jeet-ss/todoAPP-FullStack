@@ -67,24 +67,6 @@ class Item(BaseModel):
         # Ensures that when FastAPI serializes it, it can preserve your preferred key
         by_alias = False 
 
-todoItems = [
-    Item(**{
-        "id": "df0d82e1-a941-4477-8239-64c4753f94cc",
-        "text": "Jeet",
-        "event-date": "2026-08-13"
-    }),
-    Item(**{
-        "id": "fb18d807-ad13-4757-8ebb-7a45cf472298",
-        "text": "bidisha",
-        "event-date": "2026-08-22"
-    }),
-    Item(**{
-        "id": "c3806447-dd04-4b17-a0ea-c9d0e3c827c5",
-        "text": "prabir",
-        "event-date": "1199-09-09"
-    })
-]
-
 
 # Root directory
 @app.get("/")
@@ -122,7 +104,6 @@ async def update_item(updated_item: Item):
             status_code=400, 
             detail="Item ID is required for updates"
         )
-    item_id = updated_item.id
 
     items_collection = app.database["items"]
     item_dict = updated_item.model_dump(mode="json", by_alias=True)
