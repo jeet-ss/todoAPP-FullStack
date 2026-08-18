@@ -1,0 +1,183 @@
+body{
+    font-size: 20px;
+    background-color: #000000;
+    color: #f9f9f9;
+}
+.input-field, .modal-input-field{
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    margin: 0px, 10px;
+}
+.input-field:focus, .modal-input-field:focus {
+  box-shadow: inset 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+
+.add-button{
+    background-color: rgb(255, 132, 44);
+    color: white;
+}
+
+.update-button, .confirm-button{
+    background-color: rgb(44, 132, 255);
+    color: white;
+}
+
+.delete-button, .close-button{
+    background-color: red;
+    color: white;
+}
+
+.add-button, .update-button, .delete-button, 
+.close-button, .confirm-button{
+    padding:11px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.add-button:hover, .delete-button:hover, 
+.update-button:hover, .close-button:hover
+.confirm-button:hover{
+    opacity: 0.7;
+}
+.add-button:active, .delete-button:active, 
+.update-button:active, .close-button:active,
+.confirm-button:active{
+    opacity: 0.3;
+}
+
+.date-input, .modal-date-input {
+  padding: 9px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background-color: white;
+  outline: none;
+}
+.date-input:hover, .modal-date-input:hover {
+  border-color: #ecc5c5;
+}
+
+.date-input:focus, .modal-date-input:focus {
+  border-color: #4a90e2;
+  box-shadow:inset 0 0 20px rgba(74, 144, 226, 0.2);
+}
+
+
+.display-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+.display-todo-container{
+    padding: 10px;
+    border: 1px solid #fffbfb;
+    border-radius: 7px;
+
+    display: grid;
+    align-items: center; 
+    gap: 10px;
+}
+
+.todo-item{
+    overflow-wrap: break-word;
+    word-break: break-word; 
+}
+
+
+.todo-item, .todo-date{
+    padding: 10px;
+    border: none;
+    background-color: #000000;
+    color: #f9f9f9;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 700.1px) {
+  
+    .add-button, .date-input, .input-field{
+        flex: 1;
+    }
+    .display-todo-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+}
+
+
+
+@media (max-width: 700px) and (min-width: 289.1px) {
+    
+    .input-field{
+        flex: 1 1 100%;
+    }
+    .date-input{
+        flex: 1 1 calc(60% - 20px);
+    }
+    .add-button{
+        flex: 1 1 calc(40% - 15px);
+    }
+
+    .display-todo-container{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 289px) {
+    .input-field{
+        flex: 1 1 100%;
+    }
+    .date-input{
+        flex: 1 1 calc(60% - 20px);
+    }
+    .add-button{
+        flex: 1 1 calc(40% - 15px);
+    }
+    .display-todo-container{
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.update-modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;   
+    justify-content: center;
+}
+.update-content{
+    background-color: white;  
+    padding: 20px 25px;
+    border-radius: 5px;
+    margin: 10px 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 80%;
+}
+
+
+.modal-input-field, .modal-date-input{
+    flex: 1 1 100%;
+} 
+.close-button, .confirm-button{
+    flex: 1 1 calc(50% - 5px);
+}

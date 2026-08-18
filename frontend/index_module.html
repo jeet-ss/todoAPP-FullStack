@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- ⚠️ ADD THIS EXACT LINE BELOW -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            TodoList Module
+        </title>
+        <link rel="stylesheet" href="styles/general.css">
+    </head>
+    <body>
+
+        <p>TODO App</p>
+        <p>With Backend and Database</p>
+        
+        
+        <div class="display-input-container">
+            <input class="js-input input-field" type="text" placeholder="Todo name" >
+            <input class="js-date date-input" type="date" >
+            <button class="js-add-button add-button" >Add</button>  
+        </div>
+        
+        
+
+        <div class="js-display display-todo-container"></div>
+
+        <div class="js-update-modal update-modal">  
+            <div class="js-update-content update-content">
+                <h3 style="color: black; width: 100%;;display: inline-flex; justify-content: center;">Update</h3>
+                <input class="js-input-modal modal-input-field" type="text" placeholder=" Update Todo name" >
+                <input class="js-date-modal modal-date-input" type="date" >
+                <button class="js-confirm-button confirm-button">Confirm</button>
+                <button class="js-close-button close-button">Close</button>
+            </div>
+            
+        </div>
+
+        <script type="module" src="./scripts/general.js" >
+       </script>
+    </body>
+</html>
