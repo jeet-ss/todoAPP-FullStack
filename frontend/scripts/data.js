@@ -1,4 +1,5 @@
 const myItemsURL = 'https://todoapp-fullstack-erlp.onrender.com/items';
+// 'https://todoapp-fullstack-erlp.onrender.com/items';
 // 'http://127.0.0.1:8000/items';
 
 export let todoArray;
@@ -10,7 +11,6 @@ export function loadTodoItems(displayRenderFunction){
         //console.log(response, response.json(), typeof(response))
         return response.json();
     }).then((responseData)=>{
-        console.log("responseData", responseData.length);
         todoArray = responseData;
         // display the todos from memomry
         displayRenderFunction();
@@ -19,7 +19,7 @@ export function loadTodoItems(displayRenderFunction){
 
 // add
 export function addTodoItem(todoItem, resetList, displayRenderFunction){
-    console.log("Add-start", todoItem);
+    
     const promise = fetch(myItemsURL, {
         method: 'POST',
         headers:{
@@ -33,7 +33,6 @@ export function addTodoItem(todoItem, resetList, displayRenderFunction){
         // }
         return response.json();
     }).then(data => {
-        console.log('Success! Saved item:', data);
         // Update Array locally compared to total fetch
         // Use Updated item from Backend
         todoArray.push(data);
@@ -57,12 +56,10 @@ export function deleteTodoItem(itemId, displayRenderFunction){
     const promise = fetch(`${myItemsURL}/${itemId}`, {
         method: "DELETE"
     }).then((response) => {
-        console.log("delete", response);
         // if (!response.ok) {
         //     throw new Error('Network response was not ok');
         // }
         if (displayRenderFunction){
-            console.log("Delete, Rerender");
             // Do a Complete fetch of all Items
             loadTodoItems(displayRenderFunction);
         }

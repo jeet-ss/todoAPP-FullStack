@@ -1,4 +1,7 @@
-import { todoArray ,loadTodoItems, addTodoItem, deleteTodoItem, updateTodoItem } from "./data.js";
+import { 
+    todoArray ,loadTodoItems, addTodoItem, 
+    deleteTodoItem, updateTodoItem 
+} from "./data.js";
 
 
 const inputElement = document.querySelector('.js-input');
@@ -41,13 +44,9 @@ function printTodos(){
         (button, index) => {
             button.addEventListener('click', () => {
                 // get item details from index
-                const {id, text,"event-date": date } = todoArray[index];
+                const {_id, text,"event-date": date } = todoArray[index];
 
-                deleteTodoItem(id, printTodos)
-
-                // for local Update
-                // select 1 element from the mentioned index
-                // todoArray.splice(index, 1);
+                deleteTodoItem(_id, printTodos)
             });
     });
 
@@ -55,7 +54,7 @@ function printTodos(){
         (button, index) => {
             button.addEventListener('click', () => {
                 // get values
-                const {id, text,"event-date": date } = todoArray[index];
+                const {_id, text,"event-date": date } = todoArray[index];
                 // Populate the input fields with the present values
                 document.querySelector('.js-input-modal').value = text;
                 document.querySelector('.js-date-modal').value = date;
@@ -78,18 +77,12 @@ function printTodos(){
                         
                         // Call To Backend
                         updateTodoItem(
-                            {id:id, text: newTodo, "event-date": newDate },
+                            {_id:_id, text: newTodo, "event-date": newDate },
                             index,
                             printTodos
                         );
 
-                        // Update local array
-                        // todoArray[index] = { text: newTodo, "event-date": newDate };
-                        // // Display Todos
-                        // printTodos();
                     } else {
-                        // Do Somethin
-                        // show some message
                         console.log("Fields cannot be empty!");
                     }
                 });
