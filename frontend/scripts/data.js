@@ -5,7 +5,7 @@ export let todoArray;
 
 export function loadTodoItems(displayRenderFunction){
     const promise = fetch(
-        'http://127.0.0.1:8000/items'
+        myItemsURL
     ).then((response) => {
         //console.log(response, response.json(), typeof(response))
         return response.json();
