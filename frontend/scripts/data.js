@@ -1,4 +1,4 @@
-const myItemsURL = 'https://todoapp-fullstack-erlp.onrender.com';
+const myItemsURL = 'https://todoapp-fullstack-erlp.onrender.com/items';
 // 'http://127.0.0.1:8000/items';
 
 export let todoArray;
